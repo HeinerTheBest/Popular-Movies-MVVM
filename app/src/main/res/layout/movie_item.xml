@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+
+    <ImageView
+            android:layout_width="200dp"
+            android:layout_gravity="center_horizontal|clip_horizontal"
+            android:layout_height="300dp"
+            android:scaleType="fitXY"
+            android:padding="8dp"
+            app:srcCompat="@drawable/default_movie"
+            android:id="@+id/imgPostMovie"/>
+</LinearLayout>
