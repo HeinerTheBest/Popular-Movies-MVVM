@@ -2,279 +2,141 @@ package com.mobileapps.popularmoviesmvvm.model.themoviedb;
 
 import java.util.List;
 
-@SuppressWarnings("all")
 public class MovieDbResponse {
-    private final boolean adult;
+    private final int page;
 
-    private final String backdropPath;
+    private final int totalResults;
 
-    private final Object belongsToCollection;
+    private final int totalPages;
 
-    private final int budget;
+    private final List<Results> results;
 
-    private final List<Genres> genres;
-
-    private final String homepage;
-
-    private final int id;
-
-    private final String imdbId;
-
-    private final String originalLanguage;
-
-    private final String originalTitle;
-
-    private final String overview;
-
-    private final double popularity;
-
-    private final String posterPath;
-
-    private final List<ProductionCompanies> productionCompanies;
-
-    private final List<ProductionCountries> productionCountries;
-
-    private final String releaseDate;
-
-    private final int revenue;
-
-    private final int runtime;
-
-    private final List<SpokenLanguages> spokenLanguages;
-
-    private final String status;
-
-    private final String tagline;
-
-    private final String title;
-
-    private final boolean video;
-
-    private final double voteAverage;
-
-    private final int voteCount;
-
-    public MovieDbResponse(boolean adult, String backdropPath, Object belongsToCollection,
-                           int budget, List<Genres> genres, String homepage, int id, String imdbId,
-                           String originalLanguage, String originalTitle, String overview, double popularity,
-                           String posterPath, List<ProductionCompanies> productionCompanies,
-                           List<ProductionCountries> productionCountries, String releaseDate, int revenue,
-                           int runtime, List<SpokenLanguages> spokenLanguages, String status, String tagline,
-                           String title, boolean video, double voteAverage, int voteCount) {
-        this.adult = adult;
-        this.backdropPath = backdropPath;
-        this.belongsToCollection = belongsToCollection;
-        this.budget = budget;
-        this.genres = genres;
-        this.homepage = homepage;
-        this.id = id;
-        this.imdbId = imdbId;
-        this.originalLanguage = originalLanguage;
-        this.originalTitle = originalTitle;
-        this.overview = overview;
-        this.popularity = popularity;
-        this.posterPath = posterPath;
-        this.productionCompanies = productionCompanies;
-        this.productionCountries = productionCountries;
-        this.releaseDate = releaseDate;
-        this.revenue = revenue;
-        this.runtime = runtime;
-        this.spokenLanguages = spokenLanguages;
-        this.status = status;
-        this.tagline = tagline;
-        this.title = title;
-        this.video = video;
-        this.voteAverage = voteAverage;
-        this.voteCount = voteCount;
+    public MovieDbResponse(int page, int totalResults, int totalPages, List<Results> results) {
+        this.page = page;
+        this.totalResults = totalResults;
+        this.totalPages = totalPages;
+        this.results = results;
     }
 
-    public boolean isAdult() {
-        return adult;
+    public int getPage() {
+        return page;
     }
 
-    public String getBackdropPath() {
-        return backdropPath;
+    public int getTotalResults() {
+        return totalResults;
     }
 
-    public Object getBelongsToCollection() {
-        return belongsToCollection;
+    public int getTotalPages() {
+        return totalPages;
     }
 
-    public int getBudget() {
-        return budget;
+    public List<Results> getResults() {
+        return results;
     }
 
-    public List<Genres> getGenres() {
-        return genres;
-    }
+    public static class Results {
+        private final double popularity;
 
-    public String getHomepage() {
-        return homepage;
-    }
+        private final int voteCount;
 
-    public int getId() {
-        return id;
-    }
+        private final boolean video;
 
-    public String getImdbId() {
-        return imdbId;
-    }
+        private final String posterPath;
 
-    public String getOriginalLanguage() {
-        return originalLanguage;
-    }
-
-    public String getOriginalTitle() {
-        return originalTitle;
-    }
-
-    public String getOverview() {
-        return overview;
-    }
-
-    public double getPopularity() {
-        return popularity;
-    }
-
-    public String getPosterPath() {
-        return posterPath;
-    }
-
-    public List<ProductionCompanies> getProductionCompanies() {
-        return productionCompanies;
-    }
-
-    public List<ProductionCountries> getProductionCountries() {
-        return productionCountries;
-    }
-
-    public String getReleaseDate() {
-        return releaseDate;
-    }
-
-    public int getRevenue() {
-        return revenue;
-    }
-
-    public int getRuntime() {
-        return runtime;
-    }
-
-    public List<SpokenLanguages> getSpokenLanguages() {
-        return spokenLanguages;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public String getTagline() {
-        return tagline;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public boolean isVideo() {
-        return video;
-    }
-
-    public double getVoteAverage() {
-        return voteAverage;
-    }
-
-    public int getVoteCount() {
-        return voteCount;
-    }
-
-    public static class Genres {
         private final int id;
 
-        private final String name;
+        private final boolean adult;
 
-        public Genres(int id, String name) {
+        private final String backdropPath;
+
+        private final String originalLanguage;
+
+        private final String originalTitle;
+
+        private final List<Integer> genreIds;
+
+        private final String title;
+
+        private final double voteAverage;
+
+        private final String overview;
+
+        private final String releaseDate;
+
+        public Results(double popularity, int voteCount, boolean video, String posterPath, int id,
+                       boolean adult, String backdropPath, String originalLanguage, String originalTitle,
+                       List<Integer> genreIds, String title, double voteAverage, String overview,
+                       String releaseDate) {
+            this.popularity = popularity;
+            this.voteCount = voteCount;
+            this.video = video;
+            this.posterPath = posterPath;
             this.id = id;
-            this.name = name;
+            this.adult = adult;
+            this.backdropPath = backdropPath;
+            this.originalLanguage = originalLanguage;
+            this.originalTitle = originalTitle;
+            this.genreIds = genreIds;
+            this.title = title;
+            this.voteAverage = voteAverage;
+            this.overview = overview;
+            this.releaseDate = releaseDate;
+        }
+
+        public double getPopularity() {
+            return popularity;
+        }
+
+        public int getVoteCount() {
+            return voteCount;
+        }
+
+        public boolean isVideo() {
+            return video;
+        }
+
+        public String getPosterPath() {
+            return posterPath;
         }
 
         public int getId() {
             return id;
         }
 
-        public String getName() {
-            return name;
-        }
-    }
-
-    public static class ProductionCompanies {
-        private final int id;
-
-        private final String logoPath;
-
-        private final String name;
-
-        private final String originCountry;
-
-        public ProductionCompanies(int id, String logoPath, String name, String originCountry) {
-            this.id = id;
-            this.logoPath = logoPath;
-            this.name = name;
-            this.originCountry = originCountry;
+        public boolean isAdult() {
+            return adult;
         }
 
-        public int getId() {
-            return id;
+        public String getBackdropPath() {
+            return backdropPath;
         }
 
-        public String getLogoPath() {
-            return logoPath;
+        public String getOriginalLanguage() {
+            return originalLanguage;
         }
 
-        public String getName() {
-            return name;
+        public String getOriginalTitle() {
+            return originalTitle;
         }
 
-        public String getOriginCountry() {
-            return originCountry;
-        }
-    }
-
-    public static class ProductionCountries {
-        private final String iso31661;
-
-        private final String name;
-
-        public ProductionCountries(String iso31661, String name) {
-            this.iso31661 = iso31661;
-            this.name = name;
+        public List<Integer> getGenreIds() {
+            return genreIds;
         }
 
-        public String getIso31661() {
-            return iso31661;
+        public String getTitle() {
+            return title;
         }
 
-        public String getName() {
-            return name;
-        }
-    }
-
-    public static class SpokenLanguages {
-        private final String iso6391;
-
-        private final String name;
-
-        public SpokenLanguages(String iso6391, String name) {
-            this.iso6391 = iso6391;
-            this.name = name;
+        public double getVoteAverage() {
+            return voteAverage;
         }
 
-        public String getIso6391() {
-            return iso6391;
+        public String getOverview() {
+            return overview;
         }
 
-        public String getName() {
-            return name;
+        public String getReleaseDate() {
+            return releaseDate;
         }
     }
 }
