@@ -35,68 +35,31 @@ public class MovieDbResponse {
     }
 
     public static class Results {
-        private final double popularity;
 
-        private final int voteCount;
 
-        private final boolean video;
-
-        private final String posterPath;
+        private final String poster_path;
 
         private final int id;
 
         private final boolean adult;
 
-        private final String backdropPath;
-
-        private final String originalLanguage;
-
-        private final String originalTitle;
-
-        private final List<Integer> genreIds;
 
         private final String title;
 
-        private final double voteAverage;
 
-        private final String overview;
 
-        private final String releaseDate;
+        public Results(String posterPath, int id,
+                       boolean adult, String title) {
 
-        public Results(double popularity, int voteCount, boolean video, String posterPath, int id,
-                       boolean adult, String backdropPath, String originalLanguage, String originalTitle,
-                       List<Integer> genreIds, String title, double voteAverage, String overview,
-                       String releaseDate) {
-            this.popularity = popularity;
-            this.voteCount = voteCount;
-            this.video = video;
-            this.posterPath = posterPath;
+            this.poster_path = posterPath;
             this.id = id;
             this.adult = adult;
-            this.backdropPath = backdropPath;
-            this.originalLanguage = originalLanguage;
-            this.originalTitle = originalTitle;
-            this.genreIds = genreIds;
+
             this.title = title;
-            this.voteAverage = voteAverage;
-            this.overview = overview;
-            this.releaseDate = releaseDate;
         }
 
-        public double getPopularity() {
-            return popularity;
-        }
-
-        public int getVoteCount() {
-            return voteCount;
-        }
-
-        public boolean isVideo() {
-            return video;
-        }
-
-        public String getPosterPath() {
-            return posterPath;
+        public String getPoster_path() {
+            return poster_path;
         }
 
         public int getId() {
@@ -107,36 +70,11 @@ public class MovieDbResponse {
             return adult;
         }
 
-        public String getBackdropPath() {
-            return backdropPath;
-        }
 
-        public String getOriginalLanguage() {
-            return originalLanguage;
-        }
-
-        public String getOriginalTitle() {
-            return originalTitle;
-        }
-
-        public List<Integer> getGenreIds() {
-            return genreIds;
-        }
 
         public String getTitle() {
             return title;
         }
 
-        public double getVoteAverage() {
-            return voteAverage;
-        }
-
-        public String getOverview() {
-            return overview;
-        }
-
-        public String getReleaseDate() {
-            return releaseDate;
-        }
     }
 }

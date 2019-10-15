@@ -1,9 +1,7 @@
 package com.mobileapps.popularmoviesmvvm.model.themoviedb;
 
-import javax.annotation.Generated;
 import java.util.List;
 
-@Generated("io.t28.json2java.core.JavaConverter")
 @SuppressWarnings("all")
 public class MovieDbDetailResponse {
     private final boolean adult;

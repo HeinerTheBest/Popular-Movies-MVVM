@@ -10,7 +10,7 @@ import com.mobileapps.popularmoviesmvvm.model.datasource.remote.MovieDbApiHelper
 import com.mobileapps.popularmoviesmvvm.model.themoviedb.MovieDbResponse
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class MobieDbAdapter(private val responses: List<MovieDbResponse.Results>) : RecyclerView.Adapter<MobieDbAdapter.ViewHolder>() {
+class MovieDbAdapter(private val responses: List<MovieDbResponse.Results>) : RecyclerView.Adapter<MovieDbAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflatedView = parent.inflate(R.layout.movie_item)
         return ViewHolder(inflatedView)
@@ -30,7 +30,7 @@ class MobieDbAdapter(private val responses: List<MovieDbResponse.Results>) : Rec
         fun bindResponse(response: MovieDbResponse.Results){
             this.response = response
             Glide.with(view)
-                .load(BASE_IMAGE+response.posterPath)
+                .load(BASE_IMAGE+response.poster_path)
                 .centerCrop()
                 .placeholder(R.drawable.default_movie)
                 .fallback(R.drawable.default_movie)
