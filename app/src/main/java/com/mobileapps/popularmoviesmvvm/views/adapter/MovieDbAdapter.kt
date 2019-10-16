@@ -1,5 +1,6 @@
 package com.mobileapps.popularmoviesmvvm.views.adapter
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import com.mobileapps.popularmoviesmvvm.R
 import com.mobileapps.popularmoviesmvvm.inflate
 import com.mobileapps.popularmoviesmvvm.model.datasource.remote.MovieDbApiHelper.BASE_IMAGE
 import com.mobileapps.popularmoviesmvvm.model.themoviedb.MovieDbResponse
+import com.mobileapps.popularmoviesmvvm.views.MovieDetailActivity
 import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MovieDbAdapter(private val responses: List<MovieDbResponse.Results>) : RecyclerView.Adapter<MovieDbAdapter.ViewHolder>() {
@@ -38,7 +40,9 @@ class MovieDbAdapter(private val responses: List<MovieDbResponse.Results>) : Rec
                 .fallback(R.drawable.default_movie)
                 .into(view.imgPostMovie)
             view.setOnClickListener {
-                Log.d("Heiner","clicking ${response.id}")
+                val intent = Intent(view.context,MovieDetailActivity::class.java)
+                intent.putExtra("MOVIE_KEY",response.id)
+                view.context.startActivity(intent)
             }
         }
     }
