@@ -1,5 +1,6 @@
 package com.mobileapps.popularmoviesmvvm.views.adapter
 
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +28,7 @@ class MovieDbAdapter(private val responses: List<MovieDbResponse.Results>) : Rec
         private var view = v
         private var response : MovieDbResponse.Results? = null
 
+
         fun bindResponse(response: MovieDbResponse.Results){
             this.response = response
             Glide.with(view)
@@ -35,6 +37,9 @@ class MovieDbAdapter(private val responses: List<MovieDbResponse.Results>) : Rec
                 .placeholder(R.drawable.default_movie)
                 .fallback(R.drawable.default_movie)
                 .into(view.imgPostMovie)
+            view.setOnClickListener {
+                Log.d("Heiner","clicking ${response.id}")
+            }
         }
     }
 }
