@@ -6,15 +6,13 @@ import java.util.List;
 public class MovieDbDetailResponse {
     private final boolean adult;
 
-    private final String backdropPath;
-
-    private final Object belongsToCollection;
+    private final Object backdropPath;
 
     private final int budget;
 
     private final List<Genres> genres;
 
-    private final String homepage;
+    private final Object homepage;
 
     private final int id;
 
@@ -28,9 +26,9 @@ public class MovieDbDetailResponse {
 
     private final double popularity;
 
-    private final String posterPath;
+    private final String poster_path;
 
-    private final List<ProductionCompanies> productionCompanies;
+    private final List<Object> productionCompanies;
 
     private final List<ProductionCountries> productionCountries;
 
@@ -54,16 +52,14 @@ public class MovieDbDetailResponse {
 
     private final int voteCount;
 
-    public MovieDbDetailResponse(boolean adult, String backdropPath, Object belongsToCollection,
-                                 int budget, List<Genres> genres, String homepage, int id, String imdbId,
-                                 String originalLanguage, String originalTitle, String overview, double popularity,
-                                 String posterPath, List<ProductionCompanies> productionCompanies,
+    public MovieDbDetailResponse(boolean adult, Object backdropPath, int budget, List<Genres> genres,
+                                 Object homepage, int id, String imdbId, String originalLanguage, String originalTitle,
+                                 String overview, double popularity, String poster_path, List<Object> productionCompanies,
                                  List<ProductionCountries> productionCountries, String releaseDate, int revenue,
                                  int runtime, List<SpokenLanguages> spokenLanguages, String status, String tagline,
                                  String title, boolean video, double voteAverage, int voteCount) {
         this.adult = adult;
         this.backdropPath = backdropPath;
-        this.belongsToCollection = belongsToCollection;
         this.budget = budget;
         this.genres = genres;
         this.homepage = homepage;
@@ -73,7 +69,7 @@ public class MovieDbDetailResponse {
         this.originalTitle = originalTitle;
         this.overview = overview;
         this.popularity = popularity;
-        this.posterPath = posterPath;
+        this.poster_path = poster_path;
         this.productionCompanies = productionCompanies;
         this.productionCountries = productionCountries;
         this.releaseDate = releaseDate;
@@ -92,12 +88,8 @@ public class MovieDbDetailResponse {
         return adult;
     }
 
-    public String getBackdropPath() {
+    public Object getBackdropPath() {
         return backdropPath;
-    }
-
-    public Object getBelongsToCollection() {
-        return belongsToCollection;
     }
 
     public int getBudget() {
@@ -108,7 +100,7 @@ public class MovieDbDetailResponse {
         return genres;
     }
 
-    public String getHomepage() {
+    public Object getHomepage() {
         return homepage;
     }
 
@@ -136,11 +128,11 @@ public class MovieDbDetailResponse {
         return popularity;
     }
 
-    public String getPosterPath() {
-        return posterPath;
+    public String getPoster_path() {
+        return poster_path;
     }
 
-    public List<ProductionCompanies> getProductionCompanies() {
+    public List<Object> getProductionCompanies() {
         return productionCompanies;
     }
 
@@ -188,6 +180,7 @@ public class MovieDbDetailResponse {
         return voteCount;
     }
 
+
     public static class Genres {
         private final int id;
 
@@ -204,39 +197,6 @@ public class MovieDbDetailResponse {
 
         public String getName() {
             return name;
-        }
-    }
-
-    public static class ProductionCompanies {
-        private final int id;
-
-        private final String logoPath;
-
-        private final String name;
-
-        private final String originCountry;
-
-        public ProductionCompanies(int id, String logoPath, String name, String originCountry) {
-            this.id = id;
-            this.logoPath = logoPath;
-            this.name = name;
-            this.originCountry = originCountry;
-        }
-
-        public int getId() {
-            return id;
-        }
-
-        public String getLogoPath() {
-            return logoPath;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getOriginCountry() {
-            return originCountry;
         }
     }
 

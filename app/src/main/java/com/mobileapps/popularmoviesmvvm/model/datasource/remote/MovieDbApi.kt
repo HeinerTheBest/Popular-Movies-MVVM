@@ -16,8 +16,8 @@ interface MovieDbApi
     fun getPopularMovies() : Call<MovieDbResponse>
 
     @GET(DB_MOVIE_DETAIL_PATH)
-    fun getMovieDetail(@Path("movieId")id : Int) : Call<MovieDbDetailResponse>
+    fun getMovieDetail(@Path("movieId")id : String) : Call<MovieDbDetailResponse>
 
     @GET(DB_MOVIE_TRAILERS_PATH)
-    fun getMovieTrailer(@Path("movieId")id: Int) : Call<MovieDbTrailer>
+    fun getMovieTrailer(@Path("movieId")id: String) : Call<MovieDbTrailer>
 }

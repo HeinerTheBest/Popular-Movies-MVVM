@@ -41,7 +41,7 @@ class MovieDbAdapter(private val responses: List<MovieDbResponse.Results>) : Rec
                 .into(view.imgPostMovie)
             view.setOnClickListener {
                 val intent = Intent(view.context,MovieDetailActivity::class.java)
-                intent.putExtra("MOVIE_KEY",response.id)
+                intent.putExtra("MOVIE_KEY",response.id.toString())
                 view.context.startActivity(intent)
             }
         }
